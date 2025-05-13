@@ -6,34 +6,35 @@ import arrow_icon from '../../assets/arrow_icon.svg'
 
 const MyWork = () => {
   return (
-    <div id="work" className='mywork'>
-        <div className="mywork-title">
-            <h1>My Latest Work</h1>
-            <img src={theme_pattern} alt="" />
-        </div>
-        <div className="mywork-container">
-            {mywork_data.map((work, index) =>  {
-                return (
-                  <a href={work.link} target='_blank'>
-                    {" "}
-                    <img key={index} src={work.w_img} alt="" />
-                  </a>
-                );
-                
-            })}
-        </div>
+    <div id="work" className="mywork">
+      <div className="mywork-title">
+        <h1>My Latest Work</h1>
+        <img src={theme_pattern} alt="" />
+      </div>
+      <div className="mywork-container">
+        {mywork_data.map((work, index) => {
+          return (
+            <a href={work.link} target="_blank">
+              {" "}
+              <img key={index} src={work.w_img} alt="" />
+            </a>
+          );
+        })}
+      </div>
+      <div className='flex gap-2'>
         <div className="mywork-showmore">
-        <p>Show More</p>
-        
-            <img src={arrow_icon} alt="" />
+          <p>Show More</p>
+
+          <img src={arrow_icon} alt="" />
         </div>
-        <div className="mywork-showmore">
-        <p>connect with me</p>
-        
-            <img src={arrow_icon} alt="" />
+        <div className="mywork-showmore bg-blue-500 hover:bg-transparent">
+          <p>connect with me</p>
+
+          <img src={arrow_icon} alt="" />
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default MyWork
