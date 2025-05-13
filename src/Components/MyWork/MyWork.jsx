@@ -24,7 +24,12 @@ const MyWork = () => {
         </div>
         <div className="mywork-showmore">
         <p>Show More</p>
+        
+            <img src={arrow_icon} alt="" />
+        </div>
+        <div className="mywork-showmore">
         <p>connect with me</p>
+        
             <img src={arrow_icon} alt="" />
         </div>
     </div>
