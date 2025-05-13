@@ -2,25 +2,40 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 35px;
+    gap: 25px;
     
 }
 
+
 .hero img {
-    margin-top: 150px;
+    margin-top: 50px;
 }
 
 .hero h1 {
     text-align: center;
     width: 70%;
-    font-size: 90px;
+    font-size: 60px;
     font-weight: 600;
 }
 .hero h3{
      text-align: center;
-    width: 60%;
-    font-size: 60px;
+    width: 100%;
+    font-size: 40px;
     font-weight: 600;
+    background: linear-gradient(270deg, #44f568 10%, #2f43df 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero h2{
+     text-align: center;
+    width: 100%;
+    font-size: 50px;
+    font-weight: 600;
+    background: linear-gradient(270deg, #f5ae44 10%, #2f43df 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero h1 span {
@@ -29,12 +44,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.hero h3 {
-    background: linear-gradient(270deg, #f5ae44 10%, #2f43df 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}                                          
+                                         
 
 .hero p {
     width: 50%;

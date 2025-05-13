@@ -64,6 +64,7 @@ const Navbar = () => {
         <AnchorLink className="anchor-link" offset={50} href="#contact">
           Connect with Me
         </AnchorLink>
+        <button class="space-btn">Spacy Button</button>
       </div>
     </div>
   );
