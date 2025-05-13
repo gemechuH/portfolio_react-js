@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, {useRef, useState } from "react";
 import "./Navbar.css";
 import logo from "../../assets/logo.svg";
 import underline from "../../assets/nav_underline.svg";
@@ -20,6 +20,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
+      
       <img src={logo} alt="" />
       <img src={menu_open} onClick={openMenu} alt="" className="nav-mob-open" />
       <ul ref={menuRef} className="nav-menu">
@@ -64,9 +65,10 @@ const Navbar = () => {
         <AnchorLink className="anchor-link" offset={50} href="#contact">
           Connect with Me
         </AnchorLink>
-        <button class="space-btn">Spacy Button</button>
+        
       </div>
     </div>
+//    
   );
 };
 
