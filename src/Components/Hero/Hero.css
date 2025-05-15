@@ -8,29 +8,30 @@
 
 
 .hero img {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .hero h1 {
     text-align: center;
     width: 70%;
-    font-size: 60px;
+    font-size: 50px;
     font-weight: 600;
 }
-.hero h3{
+.hero p{
      text-align: center;
     width: 100%;
     font-size: 40px;
     font-weight: 600;
-    background: linear-gradient(270deg, #44f568 10%, #2f43df 100%);
+    font-family:'Times New Roman', Times, serif;
+    background: linear-gradient(270deg, #fafbfa 10%, #6e7be1 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .hero h2{
      text-align: center;
-    width: 100%;
-    font-size: 50px;
+    width: 70%;
+    font-size: 45px;
     font-weight: 600;
     background: linear-gradient(270deg, #f5ae44 10%, #2f43df 100%);
     background-clip: text;

@@ -8,17 +8,22 @@ const Hero = () => {
     <div id="home" className="hero pt-10">
       <img src={profile_img} alt="" />
       <h1>
-        <span className="bg-red-500 text-amber-900">I'm Gemechu hunduma,</span>
+        <span className="bg-red-500 text-amber-900">
+          Hello I'm Gemechu hunduma 👋
+        </span>
       </h1>
-      <h2>Software Engineer At Haramaya University</h2>
-      <h3>Profession: Full stack developer.</h3>
-      
+      <h2>Full-Stack Developer | Software Engineer at Haramaya University</h2>
+
+      <p>
+        I specialize in building clean, responsive, and scalable web
+        applications. With 2+ years of experience, I turn ideas into powerful
+        digital solutions.
+      </p>
+
       <div className="hero-action">
-        
-        <div className="hero-connect">Download CV</div>
-        <div className="hero-resume">My Resume</div>
+        <div className="hero-connect">📄 Download CV</div>
+        <div className="hero-resume">💬 Let’s Connect</div>
       </div>
-      
     </div>
   );
 };
