@@ -1,182 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./About.css";
-// import theme_pattern from "../../assets/theme_pattern.svg";
+import theme_pattern from "../../assets/theme_pattern.svg";
 import profile_img from "../../assets/about_profile.svg";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaFigma,
-  FaDocker,
-  FaAws,
-  FaGitAlt,
-  FaCode,
-  FaDatabase,
-  FaUsers,
-} from "react-icons/fa";
-import {
-  SiCypress,
-  SiJest,
-  
-  SiTailwindcss,
-  SiNextdotjs,
-} from "react-icons/si";
 
 const About = () => {
-  const [hoveredCategory, setHoveredCategory] = useState(null);
-
-  const categories = [
-    {
-      title: "UX Design & Testing",
-      color: "red",
-      skills: [
-        {
-          name: "Figma",
-          icon: <FaFigma />,
-          level: "90%",
-          details: "Wireframing, Prototyping, Collaboration",
-        },
-        {
-          name: "Adobe XD",
-          // icon: <SiAdobeXd />,
-          level: "85%",
-          details: "UI Design, Interactive Prototypes",
-        },
-        {
-          name: "Jest",
-          icon: <SiJest />,
-          level: "80%",
-          details: "Unit Testing, Snapshot Testing",
-        },
-        {
-          name: "Cypress",
-          icon: <SiCypress />,
-          level: "75%",
-          details: "E2E Testing, Component Testing",
-        },
-        {
-          name: "UserTesting",
-          icon: <FaUsers />,
-          level: "85%",
-          details: "Usability Testing, A/B Testing",
-        },
-      ],
-      programming: ["Sketch", "InVision", "Zeplin"],
-    },
-    {
-      title: "Frontend Development",
-      color: "blue",
-      skills: [
-        {
-          name: "Tailwind CSS",
-          icon: <SiTailwindcss />,
-          level: "95%",
-          details: "Utility-First CSS, Custom Themes",
-        },
-        {
-          name: "Next.js",
-          icon: <SiNextdotjs />,
-          level: "90%",
-          details: "SSR, ISR, App Router",
-        },
-        {
-          name: "Framer Motion",
-          icon: <FaCode />,
-          level: "85%",
-          details: "Animations, Transitions",
-        },
-        {
-          name: "Vite",
-          icon: <FaCode />,
-          level: "80%",
-          details: "Fast Build Tool, HMR",
-        },
-        {
-          name: "Storybook",
-          icon: <FaCode />,
-          level: "75%",
-          details: "Component Library, UI Testing",
-        },
-      ],
-      programming: ["React", "Vue.js", "Svelte"],
-    },
-    {
-      title: "Backend & Database",
-      color: "purple",
-      skills: [
-        {
-          name: "Prisma",
-          icon: <FaDatabase />,
-          level: "90%",
-          details: "ORM, Type-Safe Queries",
-        },
-        {
-          name: "Supabase",
-          icon: <FaDatabase />,
-          level: "85%",
-          details: "Realtime DB, Auth",
-        },
-        {
-          name: "Redis",
-          icon: <FaDatabase />,
-          level: "80%",
-          details: "Caching, Pub/Sub",
-        },
-        {
-          name: "GraphQL",
-          icon: <FaCode />,
-          level: "75%",
-          details: "API Design, Apollo Client",
-        },
-        {
-          name: "Drizzle",
-          icon: <FaDatabase />,
-          level: "70%",
-          details: "Lightweight ORM, SQL",
-        },
-      ],
-      programming: ["Node.js", "Python", "Go"],
-    },
-    {
-      title: "Dev Tools & Others",
-      color: "green",
-      skills: [
-        {
-          name: "Git",
-          icon: <FaGitAlt />,
-          level: "90%",
-          details: "Version Control, GitHub",
-        },
-        {
-          name: "Docker",
-          icon: <FaDocker />,
-          level: "85%",
-          details: "Containerization, Docker Compose",
-        },
-        {
-          name: "AWS",
-          icon: <FaAws />,
-          level: "80%",
-          details: "EC2, S3, Lambda",
-        },
-        {
-          name: "Kubernetes",
-          icon: <FaCode />,
-          level: "75%",
-          details: "Orchestration, CI/CD",
-        },
-        {
-          name: "Terraform",
-          icon: <FaCode />,
-          level: "70%",
-          details: "Infrastructure as Code",
-        },
-      ],
-      programming: ["Bash", "PowerShell"],
-    },
-  ];
-
-  const handleContact = (category) => {
-    window.location.href = `mailto:your.email@example.com?subject=Job Opportunity: ${category}`;
-  };
   const [counts, setCounts] = useState({
     experience: 0,
     projects: 0,
@@ -241,90 +68,224 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-4 py-8">
-        {categories.map((category, index) => (
-          <motion.div
-            key={index}
-            className={`relative bg-gray-900/40 backdrop-blur-md p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 border-t-4 border-${category.color}-500 min-h-[400px] flex flex-col`}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            onMouseEnter={() => setHoveredCategory(index)}
-            onMouseLeave={() => setHoveredCategory(null)}
-          >
-            <h3
-              className={`text-2xl font-bold text-${category.color}-400 mb-6`}
-            >
-              {category.title}
-            </h3>
-            <div className="space-y-4 flex-1">
-              {category.skills.map((skill, idx) => (
-                <div key={idx} className="group relative">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl text-gray-300">
-                        {skill.icon}
-                      </span>
-                      <span className="text-gray-200 font-medium">
-                        {skill.name}
-                      </span>
-                    </div>
-                    <span className="text-gray-400 text-sm">{skill.level}</span>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
+        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-red-500 h-">
+          <h3 className="text-2xl font-bold text-red-400 mb-6">
+            UX Design & Testing
+          </h3>
+          <div className="space-y-10 gap-20">
+            {[
+              {
+                name: "Figma",
+                icon: "devicon-figma-plain colored",
+                level: "90%",
+              },
+              {
+                name: "Adobe XD",
+                icon: "devicon-xd-plain colored",
+                level: "85%",
+              },
+              {
+                name: "Jest",
+                icon: "devicon-jest-plain colored",
+                level: "80%",
+              },
+              {
+                name: "Cypress",
+                icon: "devicon-cypress-plain colored",
+                level: "75%",
+              },
+              {
+                name: "Selenium",
+                icon: "devicon-selenium-original colored",
+                level: "70%",
+              },
+            ].map((skill, index) => (
+              <div key={index} className="group relative gap-10">
+                <div className="flex items-center justify-between mb-10">
+                  <div className="flex items-center gap-10">
+                    <i className={`${skill.icon} text-2xl`}></i>
+                    <span className="text-gray-300">{skill.name}</span>
                   </div>
-                  <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                    <motion.div
-                      className={`h-full bg-gradient-to-r from-${category.color}-400 to-${category.color}-600`}
-                      style={{ width: skill.level }}
-                      initial={{ width: 0 }}
-                      animate={{ width: skill.level }}
-                      transition={{ duration: 1, delay: idx * 0.1 }}
-                    />
-                  </div>
-                  {skill.details && (
-                    <div className="absolute -bottom-8 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                      <div className="bg-gray-900/90 text-gray-300 text-sm py-2 px-3 rounded-lg shadow-md">
-                        {skill.details}
-                      </div>
-                    </div>
-                  )}
+                  <span className="text-gray-400 text-sm">{skill.level}</span>
                 </div>
-              ))}
-            </div>
-            <AnimatePresence>
-              {hoveredCategory === index && (
-                <motion.div
-                  className="absolute inset-0 bg-gray-900/80 backdrop-blur-sm rounded-2xl p-6 flex flex-col justify-center items-center"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h4 className="text-lg font-semibold text-white mb-4">
-                    Programming Languages
-                  </h4>
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {category.programming.map((lang, idx) => (
-                      <span
-                        key={idx}
-                        className={`px-3 py-1 bg-${category.color}-500/20 text-${category.color}-300 rounded-full text-sm`}
-                      >
-                        {lang}
-                      </span>
-                    ))}
+                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-red-400 to-orange-600 transition-all duration-500 group-hover:from-orange-600 group-hover:to-red-400"
+                    style={{ width: skill.level }}
+                  ></div>
+                </div>
+                {skill.details && (
+                  <div className="absolute -bottom-8 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-gray-900/90 text-gray-300 text-sm py-1 px-2 rounded">
+                      {skill.details}
+                    </div>
                   </div>
-                  <motion.button
-                    className={`mt-6 px-6 py-2 bg-${category.color}-500 text-white rounded-full hover:bg-${category.color}-600 transition-colors`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => handleContact(category.title)}
-                  >
-                    Hire for {category.title}
-                  </motion.button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        ))}
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-gray-800/30  gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-blue-500">
+          <h3 className="text-2xl font-bold text-blue-400 mb-6">
+            Frontend Development
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                name: "React",
+                icon: "devicon-react-original colored",
+                level: "95%",
+                details: "Redux, Hooks, Context API",
+              },
+              {
+                name: "JavaScript",
+                icon: "devicon-javascript-plain colored",
+                level: "90%",
+                details: "ES6+, TypeScript, WebPack",
+              },
+              {
+                name: "HTML/CSS",
+                icon: "devicon-html5-plain colored",
+                level: "95%",
+                details: "Semantic HTML5, CSS3, SASS",
+              },
+              {
+                name: "Tailwind",
+                icon: "devicon-tailwindcss-plain colored",
+                level: "85%",
+                details: "Custom Components, JIT",
+              },
+              {
+                name: "Next.js",
+                icon: "devicon-nextjs-original",
+                level: "80%",
+                details: "SSR, ISR, API Routes",
+              },
+            ].map((skill, index) => (
+              <div key={index} className="group relative">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <i className={`${skill.icon} text-2xl`}></i>
+                    <span className="text-gray-300">{skill.name}</span>
+                  </div>
+                  <span className="text-gray-400 text-sm">{skill.level}</span>
+                </div>
+                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-blue-400 to-purple-600 transition-all duration-500 group-hover:from-purple-600 group-hover:to-blue-400"
+                    style={{ width: skill.level }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-purple-500">
+          <h3 className="text-2xl font-bold text-purple-400 mb-6">
+            Backend & Database
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                name: "Node.js",
+                icon: "devicon-nodejs-plain colored",
+                level: "90%",
+                details: "Express, REST APIs, WebSocket",
+              },
+              {
+                name: "MongoDB",
+                icon: "devicon-mongodb-plain colored",
+                level: "85%",
+                details: "Aggregation, Indexing, Atlas",
+              },
+              {
+                name: "PostgreSQL",
+                icon: "devicon-postgresql-plain colored",
+                level: "80%",
+                details: "Query Optimization, PL/pgSQL",
+              },
+              {
+                name: "Redis",
+                icon: "devicon-redis-plain colored",
+                level: "75%",
+                details: "Caching, Pub/Sub, Sessions",
+              },
+              {
+                name: "GraphQL",
+                icon: "devicon-python-plain colored",
+                level: "70%",
+              },
+            ].map((skill, index) => (
+              <div key={index} className="group relative">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <i className={`${skill.icon} text-2xl`}></i>
+                    <span className="text-gray-300">{skill.name}</span>
+                  </div>
+                  <span className="text-gray-400 text-sm">{skill.level}</span>
+                </div>
+                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-500 group-hover:from-pink-600 group-hover:to-purple-400"
+                    style={{ width: skill.level }}
+                  ></div>
+                </div>
+                {skill.details && (
+                  <div className="absolute -bottom-8 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-gray-900/90 text-gray-300 text-sm py-1 px-2 rounded">
+                      {skill.details}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-green-500 md:col-span-2 lg:col-span-1">
+          <h3 className="text-2xl font-bold text-green-400 mb-6">
+            Dev Tools & Others
+          </h3>
+          <div className="space-y-4">
+            {[
+              { name: "Git", icon: "devicon-git-plain colored", level: "90%" },
+              {
+                name: "Docker",
+                icon: "devicon-docker-plain colored",
+                level: "75%",
+              },
+              {
+                name: "AWS",
+                icon: "devicon-amazonwebservices-original colored",
+                level: "70%",
+              },
+              { name: "Linux", icon: "devicon-linux-plain", level: "85%" },
+              {
+                name: "VS Code",
+                icon: "devicon-vscode-plain colored",
+                level: "95%",
+              },
+            ].map((skill, index) => (
+              <div key={index} className="group relative">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <i className={`${skill.icon} text-2xl`}></i>
+                    <span className="text-gray-300">{skill.name}</span>
+                  </div>
+                  <span className="text-gray-400 text-sm">{skill.level}</span>
+                </div>
+                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-green-400 to-teal-600 transition-all duration-500 group-hover:from-teal-600 group-hover:to-green-400"
+                    style={{ width: skill.level }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <div className="about-achievements bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 shadow-xl mb-16">
         <div className="about-achievement transform hover:scale-110 transition-all duration-300">
