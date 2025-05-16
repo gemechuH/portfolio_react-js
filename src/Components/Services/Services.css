@@ -29,13 +29,13 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    padding: 60px;
+    padding: 30px;
     border: 2px solid white;
     border-radius: 10px;
     transition: 0.4s ease;
     cursor: pointer;
     transition: transform 0.3s ease;
-    min-height: 300px;
+    min-height: 200px;
 }
 
 .services-container {

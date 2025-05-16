@@ -101,7 +101,7 @@ const About = () => {
                 level: "70%",
               },
             ].map((skill, index) => (
-              <div key={index} className="group relative gap-10">
+              <div key={index} className="group relative gap-10 mb-10">
                 <div className="flex items-center justify-between mb-10">
                   <div className="flex items-center gap-10">
                     <i className={`${skill.icon} text-2xl`}></i>
@@ -182,6 +182,67 @@ const About = () => {
           </div>
         </div>
 
+        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-purple-500">
+          <h3 className="text-2xl font-bold text-purple-400 mb-6">
+            Backend & Database
+          </h3>
+          <div className="space-y-4">
+            {[
+              {
+                name: "Node.js",
+                icon: "devicon-nodejs-plain colored",
+                level: "90%",
+                details: "Express, REST APIs, WebSocket",
+              },
+              {
+                name: "MongoDB",
+                icon: "devicon-mongodb-plain colored",
+                level: "85%",
+                details: "Aggregation, Indexing, Atlas",
+              },
+              {
+                name: "PostgreSQL",
+                icon: "devicon-postgresql-plain colored",
+                level: "80%",
+                details: "Query Optimization, PL/pgSQL",
+              },
+              {
+                name: "Redis",
+                icon: "devicon-redis-plain colored",
+                level: "75%",
+                details: "Caching, Pub/Sub, Sessions",
+              },
+              {
+                name: "GraphQL",
+                icon: "devicon-python-plain colored",
+                level: "70%",
+              },
+            ].map((skill, index) => (
+              <div key={index} className="group relative">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <i className={`${skill.icon} text-2xl`}></i>
+                    <span className="text-gray-300">{skill.name}</span>
+                  </div>
+                  <span className="text-gray-400 text-sm">{skill.level}</span>
+                </div>
+                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-500 group-hover:from-pink-600 group-hover:to-purple-400"
+                    style={{ width: skill.level }}
+                  ></div>
+                </div>
+                {skill.details && (
+                  <div className="absolute -bottom-8 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-gray-900/90 text-gray-300 text-sm py-1 px-2 rounded">
+                      {skill.details}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-purple-500">
           <h3 className="text-2xl font-bold text-purple-400 mb-6">
             Backend & Database
