@@ -4,6 +4,7 @@ import underline from "../../assets/nav_underline.svg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import menu_open from "../../assets/menu_open.svg";
 import menu_close from "../../assets/menu_close.svg";
+import "./Navbar.css";
 import {
   GithubIcon,
   LinkedinIcon,
@@ -113,7 +114,7 @@ const Navbar = () => {
 
           <AnchorLink
             href="#contact"
-            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 
+            className="nav-connect 
               transition-colors duration-300 shadow-md hover:shadow-lg"
           >
             Connect with Me
