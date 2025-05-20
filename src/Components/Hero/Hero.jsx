@@ -42,7 +42,7 @@ const Hero = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <span className="gradient-text text-3xl sm:text-4xl md:text-5xl font-bold mb- bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text">
+        <span className="gradient-text text-3xl sm:text-4xl md:text-5xl font-bold mb-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text">
           Hello I'm Gemechu hunduma 👋
         </span>
       </motion.h1>
