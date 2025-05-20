@@ -46,13 +46,13 @@ const About = () => {
   }, []);
 
   return (
-    <div id="about" className="about">
+    <div id="" className="bg-gradient-to-b from-gray-900 to-black">
       <div className="about-sections">
         <div className="about-left hidden md:block">
           <img src={profile_img} alt="Profile" />
         </div>
         <div className="about-right">
-          <div className="about-para bg-gray-800/30 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+          <div className="about-para bg-gradient-to-b from-gray-900 to-black rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
             <p className="text-gray-300 leading-relaxed">
               I am a passionate Full-Stack Developer with expertise in modern
               web technologies. Throughout my career, I have had the privilege

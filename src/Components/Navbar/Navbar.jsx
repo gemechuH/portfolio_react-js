@@ -49,39 +49,42 @@ const Navbar = () => {
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <img src={logo} alt="Logo" className="h-10 w-auto" />
-        <div className="flex-1 flex justify-center md:justify-start">
-          <div className="flex items-center gap-4">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white hover:scale-110 transition-all"
-            >
-              <GithubIcon />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white hover:scale-110 transition-all"
-            >
-              <LinkedinIcon />
-            </a>
-            <a
-              href="https://upwork.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white hover:scale-110 transition-all"
-            >
-              <UpworkIcon />
-            </a>
+      <div className="max-w-7xl mx-auto flex items-center">
+        {/* Left section with logo and social icons */}
+        <div className="flex items-center gap-4 md:gap-12">
+          <img src={logo} alt="Logo" className="h-10 w-auto" />
+          <div className="flex-1 flex justify-center md:flex">
+            <div className="flex items-center gap-6 md:gap-4">
+              <a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white hover:scale-110 transition-all p-4"
+              >
+                <GithubIcon />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white hover:scale-110 transition-all p-4"
+              >
+                <LinkedinIcon />
+              </a>
+              <a
+                href="https://upwork.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white hover:scale-110 transition-all p-4"
+              >
+                <UpworkIcon />
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-6">
+        {/* Center navigation */}
+        <ul className="hidden md:flex items-center justify-center flex-1 gap-12">
           {[
             { href: "#home", label: "Home" },
             { href: "#about", label: "About Me", offset: 50 },
@@ -97,7 +100,7 @@ const Navbar = () => {
               >
                 <p
                   onClick={() => handleLinkClick(item.href.slice(1))}
-                  className="text-white hover:text-orange-400 transition-colors text-xl font-semibold"
+                  className="text-white hover:text-orange-400 transition-colors font-medium text-xl"
                 >
                   {item.label}
                 </p>
@@ -108,10 +111,12 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
+
+        {/* Right section - Connect button */}
         <AnchorLink
           href="#contact"
-          className="hidden md:block bg-gradient-to-r from-orange-400 to-orange-600 px-6 py-2 rounded-full
-              hover:shadow-lg transition-all duration-300"
+          className="hidden md:flex bg-gradient-to-r from-orange-400 to-orange-600 
+            px-6 py-2 rounded hover:shadow-lg transition-all duration-300 ml-8"
         >
           Connect with Me
         </AnchorLink>
@@ -120,7 +125,7 @@ const Navbar = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMenu}
-        className="fixed top-4 right-4 md:hidden text-2xl text-white"
+        className="fixed top-2 right-2 md:hidden text-2xl text-white"
       >
         {isMenuOpen ? <HiX /> : <HiMenu />}
       </button>
@@ -128,11 +133,11 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         ref={menuRef}
-        className="fixed top-0 -right-[350px] w-[300px] h-screen bg-dark shadow-2xl 
-            transition-all duration-300 z-50 md:hidden"
+        className="fixed top-0 -right-[350px] w-[300px] h-[250px] bg-dark shadow-2xl 
+            transition-all duration-300 z-50 bg-gradient-to-b from-gray-900 to-black md:hidden"
       >
         <div className="p-6 flex flex-col h-full">
-          <div className="flex justify-end mb-8">
+          <div className="flex justify-end mb-8 bg-dark">
             <button
               onClick={toggleMenu}
               className="text-2xl text-white hover:text-orange-400 transition-colors"
@@ -141,7 +146,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-4 ">
             {[
               { href: "#home", label: "Home" },
               { href: "#about", label: "About Me", offset: 50 },
