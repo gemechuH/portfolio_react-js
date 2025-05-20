@@ -2,8 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import logo from "../../assets/logo.svg";
 import underline from "../../assets/nav_underline.svg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import menu_open from "../../assets/menu_open.svg";
-import menu_close from "../../assets/menu_close.svg";
+
+import { HiMenu, HiX } from "react-icons/hi";
 import "./Navbar.css";
 import {
   GithubIcon,
@@ -51,35 +51,37 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <img src={logo} alt="Logo" className="h-10 w-auto" />
-        <div className="flex items-center gap-4">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white hover:scale-110 transition-all"
-          >
-            <GithubIcon />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white hover:scale-110 transition-all"
-          >
-            <LinkedinIcon />
-          </a>
-          <a
-            href="https://upwork.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white hover:scale-110 transition-all"
-          >
-            <UpworkIcon />
-          </a>
+        <div className="flex-1 flex justify-center md:justify-start">
+          <div className="flex items-center gap-4">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white hover:scale-110 transition-all"
+            >
+              <GithubIcon />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white hover:scale-110 transition-all"
+            >
+              <LinkedinIcon />
+            </a>
+            <a
+              href="https://upwork.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white hover:scale-110 transition-all"
+            >
+              <UpworkIcon />
+            </a>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-6">
           {[
             { href: "#home", label: "Home" },
             { href: "#about", label: "About Me", offset: 50 },
@@ -108,58 +110,19 @@ const Navbar = () => {
         </ul>
         <AnchorLink
           href="#contact"
-          className="bg-gradient-to-r from-orange-400 to-orange-600 px-6 py-2 rounded-full
+          className="hidden md:block bg-gradient-to-r from-orange-400 to-orange-600 px-6 py-2 rounded-full
               hover:shadow-lg transition-all duration-300"
         >
           Connect with Me
         </AnchorLink>
       </div>
 
-      {/* Social Icons & Connect Button - Desktop */}
-      {/* <div className="hidden md:flex items-center gap-6">
-          <div className="flex gap-4">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 hover:scale-110 transition-all"
-            >
-              <GithubIcon />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 hover:scale-110 transition-all"
-            >
-              <LinkedinIcon />
-            </a>
-            <a
-              href="https://upwork.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-600 hover:text-green-700 hover:scale-110 transition-all"
-            >
-              <UpworkIcon />
-            </a>
-          </div>
-
-          <AnchorLink
-            href="#contact"
-            className="nav-connect 
-              transition-colors duration-300 text-end shadow-md hover:shadow-lg"
-          >
-            Connect with Me
-          </AnchorLink>
-        </div> */}
-
       {/* Mobile Menu Button */}
-      <button onClick={toggleMenu} className="md:hidden">
-        <img
-          src={isMenuOpen ? menu_close : menu_open}
-          alt="menu"
-          className="w-6 h-6"
-        />
+      <button
+        onClick={toggleMenu}
+        className="fixed top-4 right-4 md:hidden text-2xl text-white"
+      >
+        {isMenuOpen ? <HiX /> : <HiMenu />}
       </button>
 
       {/* Mobile Navigation */}
@@ -170,12 +133,15 @@ const Navbar = () => {
       >
         <div className="p-6 flex flex-col h-full">
           <div className="flex justify-end mb-8">
-            <button onClick={toggleMenu}>
-              <img src={menu_close} alt="close" className="w-6 h-6" />
+            <button
+              onClick={toggleMenu}
+              className="text-2xl text-white hover:text-orange-400 transition-colors"
+            >
+              <HiX />
             </button>
           </div>
 
-          <ul className="flex flex-col gap-6">
+          <ul className="flex flex-col gap-4">
             {[
               { href: "#home", label: "Home" },
               { href: "#about", label: "About Me", offset: 50 },
