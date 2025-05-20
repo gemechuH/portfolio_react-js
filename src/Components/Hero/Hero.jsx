@@ -50,7 +50,7 @@ const Hero = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="role-text text-xl sm:text-2xl md:text-2xl text-gray-300 mb-8"
+        className="role-text text-xl sm:text-xl md:text-2xl text-gray-300 mb-8"
       >
         <TypeAnimation
           sequence={[
