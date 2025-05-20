@@ -7,15 +7,19 @@ import profile_img from "../../assets/profile_img.svg";
 
 const Hero = () => {
   return (
-    <div id="home" className="hero pt-10">
-      <div className="animated-background">
+    <div id="home" className="hero pt-20 ">
+      {/* <div className="animated-background">
         <div className="floating-circle circle1"></div>
         <div className="floating-circle circle2"></div>
         <div className="floating-circle circle3"></div>
         <div className="floating-text">Connect with me</div>
         <div className="floating-text text2">Let's build something amazing</div>
-        
-      </div>
+      </div> */}
+
+
+      {/* background bollon  */}
+  
+
 
       <motion.img
         initial={{ scale: 0, opacity: 0 }}
@@ -61,7 +65,6 @@ const Hero = () => {
         applications. With 2+ years of experience, I turn ideas into powerful
         digital solutions.
       </motion.p>
-      
 
       <motion.div
         initial={{ y: -20, opacity: 0 }}
