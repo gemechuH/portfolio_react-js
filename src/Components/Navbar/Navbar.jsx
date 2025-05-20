@@ -33,7 +33,34 @@ const Navbar = () => {
     <div
       className={`navbar fixed top-0 left-0 w-full transition-transform duration-300 z-50 ${visible ? "translate-y-0" : "-translate-y-full"}`}
     >
-      <img src={logo} alt="" />
+      {/* <img src={logo} alt="" /> */}
+
+      <div className="flex items-center gap-4">
+        <img src={logo} alt="" className="h-10 w-auto" />
+        <div className="hidden md:flex items-center gap-3">
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="devicon-github-original colored text-2xl hover:scale-110 transition-transform"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="devicon-linkedin-plain colored text-2xl hover:scale-110 transition-transform"></i>
+          </a>
+          <a
+            href="https://www.upwork.com/freelancers/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="devicon-upwork-plain colored text-2xl hover:scale-110 transition-transform"></i>
+          </a>
+        </div>
+      </div>
       <img src={menu_open} onClick={openMenu} alt="" className="nav-mob-open" />
       <ul ref={menuRef} className="nav-menu">
         <img
@@ -72,6 +99,29 @@ const Navbar = () => {
           </AnchorLink>
           {menu === "contact" ? <img src={underline} alt="" /> : <></>}
         </li>
+        <div className="flex md:hidden items-center gap-3 mb-6 justify-center">
+          <a
+            href="https://github.com/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="devicon-github-original colored text-2xl"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="devicon-linkedin-plain colored text-2xl"></i>
+          </a>
+          <a
+            href="https://www.upwork.com/freelancers/yourusername"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="devicon-upwork-plain colored text-2xl"></i>
+          </a>
+        </div>
       </ul>
       <div className="nav-connect">
         <AnchorLink className="anchor-link" offset={50} href="#contact">
