@@ -43,83 +43,166 @@ const Navbar = () => {
   }, [prevScrollPos]);
 
   return (
-    <div
-      className={`navbar fixed top-0 left-0 w-full transition-transform duration-300 z-50 ${visible ? "translate-y-0" : "-translate-y-full"}`}
-    >
-      <img src={logo} alt="" />
-      <img
-        src={menu_open}
-        onClick={toggleMenu}
-        alt=""
-        className={`nav-mob-open ${isMenuOpen ? "hidden" : ""}`}
-      />
-      <ul ref={menuRef} className="nav-menu">
-        <img
-          src={menu_close}
-          onClick={toggleMenu}
-          alt=""
-          className="nav-mob-close"
-        />
-        <li>
-          <AnchorLink className="anchor-link" href="#home">
-            <p onClick={() => handleLinkClick("home")}>Home</p>
-          </AnchorLink>
-          {menu === "home" ? <img src={underline} alt="" /> : <></>}
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#about">
-            <p onClick={() => handleLinkClick("about")}>About Me</p>
-          </AnchorLink>
-          {menu === "about" ? <img src={underline} alt="" /> : <></>}
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#services">
-            <p onClick={() => handleLinkClick("services")}>Services</p>
-          </AnchorLink>
-          {menu === "services" ? <img src={underline} alt="" /> : <></>}
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#work">
-            <p onClick={() => handleLinkClick("work")}>Portfolio</p>
-          </AnchorLink>
-          {menu === "work" ? <img src={underline} alt="" /> : <></>}
-        </li>
-        <li>
-          <AnchorLink className="anchor-link" offset={50} href="#contact">
-            <p onClick={() => handleLinkClick("contact")}>Contact</p>
-          </AnchorLink>
-          {menu === "contact" ? <img src={underline} alt="" /> : <></>}
-        </li>
-        <div className="social-icons">
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform duration-300"
-          >
-            <GithubIcon />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform duration-300"
-          >
-            <LinkedinIcon />
-          </a>
-          <a
-            href="https://upwork.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-110 transition-transform duration-300"
-          >
-            <UpworkIcon />
-          </a>
-        </div>
-      </ul>
+    // <div
+    //   className={`fixed top-0 left-0 w-full px-4 md:px-8 py-4 bg-white/95 backdrop-blur-sm shadow-lg transition-transform duration-300 z-50 ${
+    //     visible ? "translate-y-0" : "-translate-y-full"
+    //   }`}
+    // >
 
-      <div className="hidden md:flex items-center gap-6">
-        <div className="flex gap-6">
+    //   <img src={logo} alt="" />
+    //   <img
+    //     src={menu_open}
+    //     onClick={toggleMenu}
+    //     alt=""
+    //     className={`nav-mob-open ${isMenuOpen ? "hidden" : ""}`}
+    //   />
+    //   <ul ref={menuRef} className="nav-menu">
+    //     <img
+    //       src={menu_close}
+    //       onClick={toggleMenu}
+    //       alt=""
+    //       className="nav-mob-close"
+    //     />
+    //     <li>
+    //       <AnchorLink className="anchor-link" href="#home">
+    //         <p onClick={() => handleLinkClick("home")}>Home</p>
+    //       </AnchorLink>
+    //       {menu === "home" ? <img src={underline} alt="" /> : <></>}
+    //     </li>
+    //     <li>
+    //       <AnchorLink className="anchor-link" offset={50} href="#about">
+    //         <p onClick={() => handleLinkClick("about")}>About Me</p>
+    //       </AnchorLink>
+    //       {menu === "about" ? <img src={underline} alt="" /> : <></>}
+    //     </li>
+    //     <li>
+    //       <AnchorLink className="anchor-link" offset={50} href="#services">
+    //         <p onClick={() => handleLinkClick("services")}>Services</p>
+    //       </AnchorLink>
+    //       {menu === "services" ? <img src={underline} alt="" /> : <></>}
+    //     </li>
+    //     <li>
+    //       <AnchorLink className="anchor-link" offset={50} href="#work">
+    //         <p onClick={() => handleLinkClick("work")}>Portfolio</p>
+    //       </AnchorLink>
+    //       {menu === "work" ? <img src={underline} alt="" /> : <></>}
+    //     </li>
+    //     <li>
+    //       <AnchorLink className="anchor-link" offset={50} href="#contact">
+    //         <p onClick={() => handleLinkClick("contact")}>Contact</p>
+    //       </AnchorLink>
+    //       {menu === "contact" ? <img src={underline} alt="" /> : <></>}
+    //     </li>
+    //     {/* <div className="social-icons">
+    //       <a
+    //         href="https://github.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="hover:scale-110 transition-transform duration-300"
+    //       >
+    //         <GithubIcon />
+    //       </a>
+    //       <a
+    //         href="https://linkedin.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="hover:scale-110 transition-transform duration-300"
+    //       >
+    //         <LinkedinIcon />
+    //       </a>
+    //       <a
+    //         href="https://upwork.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="hover:scale-110 transition-transform duration-300"
+    //       >
+    //         <UpworkIcon />
+    //       </a>
+    //     </div> */}
+    //   </ul>
+
+    //   <div className="hidden md:flex items-center gap-6">
+    //     <div className="flex gap-6">
+    //       <a
+    //         href="https://github.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="hover:scale-110 transition-transform duration-300"
+    //       >
+    //         <GithubIcon />
+    //       </a>
+    //       <a
+    //         href="https://linkedin.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="hover:scale-110 transition-transform duration-300"
+    //       >
+    //         <LinkedinIcon />
+    //       </a>
+    //       <a
+    //         href="https://upwork.com"
+    //         target="_blank"
+    //         rel="noopener noreferrer"
+    //         className="hover:scale-110 transition-transform duration-300"
+    //       >
+    //         <UpworkIcon />
+    //       </a>
+    //     </div>
+    //   </div>
+    //   <div className="nav-connect">
+    //     <AnchorLink className="anchor-link" offset={50} href="#contact">
+    //       Connect with Me
+    //     </AnchorLink>
+    //   </div>
+    // </div>
+    <div
+      className={`fixed top-0 left-0 w-full px-4 md:px-8 py-4 bg-dark backdrop-blur-sm shadow-lg transition-transform duration-300 z-50  ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="flex items-center gap-6">
+          <img src={logo} alt="Logo" className="h-10 w-auto" />
+
+          {/* Desktop Navigation */}
+          <ul ref={menuRef} className="nav-menu">
+            <img
+              src={menu_close}
+              onClick={toggleMenu}
+              alt=""
+              className="nav-mob-close"
+            />
+            <li>
+              <AnchorLink className="anchor-link" href="#home">
+                <p onClick={() => handleLinkClick("home")}>Home</p>
+              </AnchorLink>
+              {menu === "home" ? <img src={underline} alt="" /> : <></>}
+            </li>
+            <li>
+              <AnchorLink className="anchor-link" offset={50} href="#about">
+                <p onClick={() => handleLinkClick("about")}>About Me</p>
+              </AnchorLink>
+              {menu === "about" ? <img src={underline} alt="" /> : <></>}
+            </li>
+            <li>
+              <AnchorLink className="anchor-link" offset={50} href="#services">
+                <p onClick={() => handleLinkClick("services")}>Services</p>
+              </AnchorLink>
+              {menu === "services" ? <img src={underline} alt="" /> : <></>}
+            </li>
+            <li>
+              <AnchorLink className="anchor-link" offset={50} href="#work">
+                <p onClick={() => handleLinkClick("work")}>Portfolio</p>
+              </AnchorLink>
+              {menu === "work" ? <img src={underline} alt="" /> : <></>}
+            </li>
+            <li>
+              <AnchorLink className="anchor-link" offset={50} href="#contact">
+                <p onClick={() => handleLinkClick("contact")}>Contact</p>
+              </AnchorLink>
+              {menu === "contact" ? <img src={underline} alt="" /> : <></>}
+            </li>
+             {/* <div className="social-icons">
           <a
             href="https://github.com"
             target="_blank"
@@ -144,12 +227,178 @@ const Navbar = () => {
           >
             <UpworkIcon />
           </a>
+        </div>  */}
+          </ul>
         </div>
-      </div>
-      <div className="nav-connect">
-        <AnchorLink className="anchor-link" offset={50} href="#contact">
-          Connect with Me
-        </AnchorLink>
+
+        {/* Social Icons - Desktop */}
+        <div className="hidden md:flex items-center gap-6">
+          <div className="flex gap-4">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 hover:text-gray-900 hover:scale-110 transition-all"
+            >
+              <GithubIcon />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-700 hover:scale-110 transition-all"
+            >
+              <LinkedinIcon />
+            </a>
+            <a
+              href="https://upwork.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-600 hover:text-green-700 hover:scale-110 transition-all"
+            >
+              <UpworkIcon />
+            </a>
+          </div>
+
+          <AnchorLink
+            href="#contact"
+            className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 
+            transition-colors duration-300 shadow-md hover:shadow-lg"
+          >
+            Connect with Me
+          </AnchorLink>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button onClick={toggleMenu} className="md:hidden">
+          <img
+            src={isMenuOpen ? menu_close : menu_open}
+            alt="menu"
+            className="w-6 h-6"
+          />
+        </button>
+
+        {/* Mobile Navigation */}
+        <div
+          ref={menuRef}
+          className="fixed top-0 -right-[350px] w-[300px] h-screen bg-white shadow-2xl 
+          transition-all duration-300 z-50 md:hidden"
+        >
+          <div className="p-6 flex flex-col h-full">
+            <div className="flex justify-end mb-8">
+              <button onClick={toggleMenu}>
+                <img src={menu_close} alt="close" className="w-6 h-6" />
+              </button>
+            </div>
+
+            <ul ref={menuRef} className="nav-menu">
+              <img
+                src={menu_close}
+                onClick={toggleMenu}
+                alt=""
+                className="nav-mob-close"
+              />
+              <li>
+                <AnchorLink className="anchor-link" href="#home">
+                  <p onClick={() => handleLinkClick("home")}>Home</p>
+                </AnchorLink>
+                {menu === "home" ? <img src={underline} alt="" /> : <></>}
+              </li>
+              <li>
+                <AnchorLink className="anchor-link" offset={50} href="#about">
+                  <p onClick={() => handleLinkClick("about")}>About Me</p>
+                </AnchorLink>
+                {menu === "about" ? <img src={underline} alt="" /> : <></>}
+              </li>
+              <li>
+                <AnchorLink
+                  className="anchor-link"
+                  offset={50}
+                  href="#services"
+                >
+                  <p onClick={() => handleLinkClick("services")}>Services</p>
+                </AnchorLink>
+                {menu === "services" ? <img src={underline} alt="" /> : <></>}
+              </li>
+              <li>
+                <AnchorLink className="anchor-link" offset={50} href="#work">
+                  <p onClick={() => handleLinkClick("work")}>Portfolio</p>
+                </AnchorLink>
+                {menu === "work" ? <img src={underline} alt="" /> : <></>}
+              </li>
+              <li>
+                <AnchorLink className="anchor-link" offset={50} href="#contact">
+                  <p onClick={() => handleLinkClick("contact")}>Contact</p>
+                </AnchorLink>
+                {menu === "contact" ? <img src={underline} alt="" /> : <></>}
+              </li>
+              <div className="social-icons">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-transform duration-300"
+                >
+                  <GithubIcon />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-transform duration-300"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  href="https://upwork.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:scale-110 transition-transform duration-300"
+                >
+                  <UpworkIcon />
+                </a>
+              </div>
+            </ul>
+
+            <div className="mt-auto">
+              <div className="flex justify-center gap-4 mb-6">
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-gray-900 hover:scale-110 transition-all"
+                >
+                  <GithubIcon />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-700 hover:scale-110 transition-all"
+                >
+                  <LinkedinIcon />
+                </a>
+                <a
+                  href="https://upwork.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:text-green-700 hover:scale-110 transition-all"
+                >
+                  <UpworkIcon />
+                </a>
+              </div>
+
+              <AnchorLink
+                href="#contact"
+                className="block text-center bg-blue-600 text-white px-6 py-2 rounded-full 
+                hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+                onClick={toggleMenu}
+              >
+                Connect with Me
+              </AnchorLink>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
