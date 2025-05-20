@@ -46,7 +46,7 @@ const About = () => {
   }, []);
 
   return (
-    <div id="" className="bg-gradient-to-b from-gray-900 to-black">
+    <div id="about" className="bg-gradient-to-b from-gray-900 to-black">
       <div className="about-sections">
         <div className="about-left hidden md:block">
           <img src={profile_img} alt="Profile" />
