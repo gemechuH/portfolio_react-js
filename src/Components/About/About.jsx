@@ -1,14 +1,100 @@
 import React, { useState, useEffect } from "react";
-import "./About.css";
-import theme_pattern from "../../assets/theme_pattern.svg";
+import { motion } from "framer-motion";
 import profile_img from "../../assets/about_profile.svg";
-
+import { useInView } from "react-intersection-observer";
+import {
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaRobot,
+  FaMobile,
+  FaShieldAlt,
+  FaCode,
+  FaBrain,
+} from "react-icons/fa";
+import {
+  SiTailwindcss,
+  SiJavascript,
+  SiFirebase,
+  SiFigma,
+} from "react-icons/si";
+import { MdDesignServices } from "react-icons/md";
+import { BiCodeAlt } from "react-icons/bi";
 const About = () => {
   const [counts, setCounts] = useState({
     experience: 0,
     projects: 0,
     clients: 0,
   });
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+   const [achievementsRef, achievementsInView] = useInView({
+     triggerOnce: true,
+     threshold: 0.2,
+   });
+  // Update the services array
+  const services = [
+    {
+      icon: <FaCode className="w-8 h-8 text-white" />,
+      techIcons: [
+        <FaReact />,
+        <FaNodeJs />,
+        <SiJavascript />,
+        <SiTailwindcss />,
+      ],
+      title: "Web Development",
+      description:
+        "Full-stack web solutions with modern technologies like React, Node.js, and Python",
+      features: ["Custom Web Apps", "E-commerce Solutions", "API Development"],
+    },
+    {
+      icon: <FaMobile className="w-8 h-8 text-white" />,
+      techIcons: [<FaReact />, <SiFirebase />, <FaPython />, <SiJavascript />],
+      title: "Mobile Development",
+      description: "Native and cross-platform mobile applications",
+      features: ["iOS Development", "Android Apps", "React Native Solutions"],
+    },
+    {
+      icon: <FaRobot className="w-8 h-8 text-white" />,
+      techIcons: [<FaPython />, <FaBrain />, <FaNodeJs />, <SiFirebase />],
+      title: "Chatbot Development",
+      description: "Intelligent chatbot solutions for business automation",
+      features: ["AI-Powered Chatbots", "NLP Integration", "Custom Bot Logic"],
+    },
+    {
+      icon: <MdDesignServices className="w-8 h-8 text-white" />,
+      techIcons: [<SiFigma />, <FaCode />, <SiTailwindcss />],
+      title: "UI AND UX design",
+      description: "Creating intuitive and engaging user experiences",
+      features: ["User Research", "Wireframing", "Prototype Development"],
+    },
+    {
+      icon: <FaShieldAlt className="w-8 h-8 text-white" />,
+      techIcons: [<FaPython />, <FaCode />, <BiCodeAlt />, <FaShieldAlt />],
+      title: "Cybersecurity",
+      description:
+        "Comprehensive security solutions to protect your digital assets",
+      features: [
+        "Penetration Testing",
+        "Security Audits",
+        "Vulnerability Assessment",
+      ],
+    },
+    {
+      icon: <FaBrain className="w-8 h-8 text-white" />,
+      techIcons: [<FaPython />, <FaNodeJs />, <FaBrain />, <FaRobot />],
+      title: "AI Solutions",
+      description:
+        "Cutting-edge AI and machine learning solutions for business automation",
+      features: [
+        "Machine Learning",
+        "Natural Language Processing",
+        "Computer Vision",
+      ],
+    },
+  ];
 
   useEffect(() => {
     const animateCounts = () => {
@@ -46,330 +132,181 @@ const About = () => {
   }, []);
 
   return (
-    <div id="about" className="bg-gradient-to-b from-gray-900 to-black">
-      <div className="about-sections">
-        <div className="about-left hidden md:block">
-          <img src={profile_img} alt="Profile" />
-        </div>
-        <div className="about-right">
-          <div className="about-para bg-gradient-to-b from-gray-900 to-black rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-            <p className="text-gray-300 leading-relaxed">
-              I am a passionate Full-Stack Developer with expertise in modern
-              web technologies. Throughout my career, I have had the privilege
-              of collaborating with prestigious organizations, contributing to
-              their success through innovative digital solutions.
-            </p>
-            <p className="text-gray-300 leading-relaxed">
-              My approach combines technical excellence with creative
-              problem-solving, ensuring that every project I undertake not only
-              meets but exceeds expectations. I'm constantly learning and
-              adapting to new technologies to deliver cutting-edge solutions.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
-        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-red-500 h-">
-          <h3 className="text-2xl font-bold text-red-400 mb-6">
-            UX Design & Testing
-          </h3>
-          <div className="space-y-10 gap-20">
-            {[
-              {
-                name: "Figma",
-                icon: "devicon-figma-plain colored",
-                level: "90%",
-              },
-              {
-                name: "Adobe XD",
-                icon: "devicon-xd-plain colored",
-                level: "85%",
-              },
-              {
-                name: "Jest",
-                icon: "devicon-jest-plain colored",
-                level: "80%",
-              },
-              {
-                name: "Cypress",
-                icon: "devicon-cypress-plain colored",
-                level: "75%",
-              },
-              {
-                name: "Selenium",
-                icon: "devicon-selenium-original colored",
-                level: "70%",
-              },
-            ].map((skill, index) => (
-              <div key={index} className="group relative gap-10 mb-10">
-                <div className="flex items-center justify-between mb-10">
-                  <div className="flex items-center gap-10">
-                    <i className={`${skill.icon} text-2xl`}></i>
-                    <span className="text-gray-300">{skill.name}</span>
-                  </div>
-                  <span className="text-gray-400 text-sm">{skill.level}</span>
-                </div>
-                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-red-400 to-orange-600 transition-all duration-500 group-hover:from-orange-600 group-hover:to-red-400"
-                    style={{ width: skill.level }}
-                  ></div>
-                </div>
-                {skill.details && (
-                  <div className="absolute -bottom-8 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-gray-900/90 text-gray-300 text-sm py-1 px-2 rounded">
-                      {skill.details}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="bg-gray-800/30  gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-blue-500">
-          <h3 className="text-2xl font-bold text-blue-400 mb-6">
-            Frontend Development
-          </h3>
-          <div className="space-y-4">
-            {[
-              {
-                name: "React",
-                icon: "devicon-react-original colored",
-                level: "95%",
-                details: "Redux, Hooks, Context API",
-              },
-              {
-                name: "JavaScript",
-                icon: "devicon-javascript-plain colored",
-                level: "90%",
-                details: "ES6+, TypeScript, WebPack",
-              },
-              {
-                name: "HTML/CSS",
-                icon: "devicon-html5-plain colored",
-                level: "95%",
-                details: "Semantic HTML5, CSS3, SASS",
-              },
-              {
-                name: "Tailwind",
-                icon: "devicon-tailwindcss-plain colored",
-                level: "85%",
-                details: "Custom Components, JIT",
-              },
-              {
-                name: "Next.js",
-                icon: "devicon-nextjs-original",
-                level: "80%",
-                details: "SSR, ISR, API Routes",
-              },
-            ].map((skill, index) => (
-              <div key={index} className="group relative">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <i className={`${skill.icon} text-2xl`}></i>
-                    <span className="text-gray-300">{skill.name}</span>
-                  </div>
-                  <span className="text-gray-400 text-sm">{skill.level}</span>
-                </div>
-                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-blue-400 to-purple-600 transition-all duration-500 group-hover:from-purple-600 group-hover:to-blue-400"
-                    style={{ width: skill.level }}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+    <div id="about" className="bg-gradient-to-b from-gray-900 to-black py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative group"
+          >
+            <div className="relative overflow-hidden rounded-2xl border-4 border-blue-500/30 shadow-xl shadow-blue-500/20 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-blue-500/30 h-[400px]">
+              <img
+                src={profile_img}
+                alt="Profile"
+                className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          </motion.div>
 
-        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-purple-500">
-          <h3 className="text-2xl font-bold text-purple-400 mb-6">
-            Backend & Database
-          </h3>
-          <div className="space-y-4">
-            {[
-              {
-                name: "Node.js",
-                icon: "devicon-nodejs-plain colored",
-                level: "90%",
-                details: "Express, REST APIs, WebSocket",
-              },
-              {
-                name: "MongoDB",
-                icon: "devicon-mongodb-plain colored",
-                level: "85%",
-                details: "Aggregation, Indexing, Atlas",
-              },
-              {
-                name: "PostgreSQL",
-                icon: "devicon-postgresql-plain colored",
-                level: "80%",
-                details: "Query Optimization, PL/pgSQL",
-              },
-              {
-                name: "Redis",
-                icon: "devicon-redis-plain colored",
-                level: "75%",
-                details: "Caching, Pub/Sub, Sessions",
-              },
-              {
-                name: "GraphQL",
-                icon: "devicon-python-plain colored",
-                level: "70%",
-              },
-            ].map((skill, index) => (
-              <div key={index} className="group relative">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <i className={`${skill.icon} text-2xl`}></i>
-                    <span className="text-gray-300">{skill.name}</span>
-                  </div>
-                  <span className="text-gray-400 text-sm">{skill.level}</span>
-                </div>
-                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-500 group-hover:from-pink-600 group-hover:to-purple-400"
-                    style={{ width: skill.level }}
-                  ></div>
-                </div>
-                {skill.details && (
-                  <div className="absolute -bottom-8 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-gray-900/90 text-gray-300 text-sm py-1 px-2 rounded">
-                      {skill.details}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-6 self-start"
+          >
+            <div className="bg-gray-800/30 backdrop-blur-sm rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-700/50">
+              <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                I am a passionate Full-Stack Developer with expertise in modern
+                web technologies. Throughout my career, I have had the privilege
+                of collaborating with prestigious organizations, contributing to
+                their success through innovative digital solutions.
+              </p>
+              <p className="text-gray-300 text-lg leading-relaxed">
+                My approach combines technical excellence with creative
+                problem-solving, ensuring that every project I undertake not
+                only meets but exceeds expectations. I'm constantly learning and
+                adapting to new technologies to deliver cutting-edge solutions.
+              </p>
+            </div>
+          </motion.div>
         </div>
-        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-purple-500">
-          <h3 className="text-2xl font-bold text-purple-400 mb-6">
-            Backend & Database
-          </h3>
-          <div className="space-y-4">
-            {[
-              {
-                name: "Node.js",
-                icon: "devicon-nodejs-plain colored",
-                level: "90%",
-                details: "Express, REST APIs, WebSocket",
-              },
-              {
-                name: "MongoDB",
-                icon: "devicon-mongodb-plain colored",
-                level: "85%",
-                details: "Aggregation, Indexing, Atlas",
-              },
-              {
-                name: "PostgreSQL",
-                icon: "devicon-postgresql-plain colored",
-                level: "80%",
-                details: "Query Optimization, PL/pgSQL",
-              },
-              {
-                name: "Redis",
-                icon: "devicon-redis-plain colored",
-                level: "75%",
-                details: "Caching, Pub/Sub, Sessions",
-              },
-              {
-                name: "GraphQL",
-                icon: "devicon-python-plain colored",
-                level: "70%",
-              },
-            ].map((skill, index) => (
-              <div key={index} className="group relative">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <i className={`${skill.icon} text-2xl`}></i>
-                    <span className="text-gray-300">{skill.name}</span>
-                  </div>
-                  <span className="text-gray-400 text-sm">{skill.level}</span>
-                </div>
-                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-purple-400 to-pink-600 transition-all duration-500 group-hover:from-pink-600 group-hover:to-purple-400"
-                    style={{ width: skill.level }}
-                  ></div>
-                </div>
-                {skill.details && (
-                  <div className="absolute -bottom-8 left-0 w-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-gray-900/90 text-gray-300 text-sm py-1 px-2 rounded">
-                      {skill.details}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
+      </div>
+      <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="group relative bg-gray-800/50 backdrop-blur-lg rounded-xl p-6 hover:transform hover:scale-105 transition-all duration-500 border border-gray-700/50 hover:border-blue-500/50 overflow-hidden"
+            whileHover={{ scale: 1.05 }}
+          >
+            {/* Background Gradient Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-        <div className="bg-gray-800/30 gap-8 backdrop-blur-sm p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border-t-4 border-green-500 md:col-span-2 lg:col-span-1">
-          <h3 className="text-2xl font-bold text-green-400 mb-6">
-            Dev Tools & Others
-          </h3>
-          <div className="space-y-4">
-            {[
-              { name: "Git", icon: "devicon-git-plain colored", level: "90%" },
-              {
-                name: "Docker",
-                icon: "devicon-docker-plain colored",
-                level: "75%",
-              },
-              {
-                name: "AWS",
-                icon: "devicon-amazonwebservices-original colored",
-                level: "70%",
-              },
-              { name: "Linux", icon: "devicon-linux-plain", level: "85%" },
-              {
-                name: "VS Code",
-                icon: "devicon-vscode-plain colored",
-                level: "95%",
-              },
-            ].map((skill, index) => (
-              <div key={index} className="group relative">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2">
-                    <i className={`${skill.icon} text-2xl`}></i>
-                    <span className="text-gray-300">{skill.name}</span>
-                  </div>
-                  <span className="text-gray-400 text-sm">{skill.level}</span>
-                </div>
-                <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-gradient-to-r from-green-400 to-teal-600 transition-all duration-500 group-hover:from-teal-600 group-hover:to-green-400"
-                    style={{ width: skill.level }}
-                  ></div>
-                </div>
+            {/* Front Content */}
+            <div className="relative z-10 transform group-hover:-translate-y-[200%] transition-transform duration-500">
+              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors duration-300">
+                {service.icon}
               </div>
-            ))}
-          </div>
-        </div>
+              <h3 className="text-2xl font-semibold mb-3 text-white">
+                {service.title}
+              </h3>
+              <p className="text-gray-400 mb-4">{service.description}</p>
+            </div>
+
+            {/* Back Content (Revealed on Hover) */}
+            <div className="absolute inset-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+              <div className="h-full flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xl font-semibold text-blue-400 mb-4">
+                    Technologies We Use
+                  </h4>
+                  <div className="flex gap-4 mb-6">
+                    {service.techIcons.map((icon, idx) => (
+                      <div
+                        key={idx}
+                        className="text-2xl text-gray-300 hover:text-blue-400 transition-colors duration-300"
+                      >
+                        {icon}
+                      </div>
+                    ))}
+                  </div>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="text-gray-300 flex items-center">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <button className="mt-6 w-full py-3 px-6 bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 rounded-xl transition-all duration-300 border border-blue-500/30 hover:border-blue-500/50">
+                  Learn More →
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-      <div className="about-achievements bg-gray-800/50 backdrop-blur-lg rounded-2xl p-8 shadow-xl mb-16">
-        <div className="about-achievement transform hover:scale-110 transition-all duration-300">
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-            {counts.experience}+
-          </h1>
-          <p className="text-gray-300 font-medium">YEARS OF EXPERIENCE 🧠</p>
+      <motion.div
+        ref={achievementsRef}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={
+              achievementsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+            }
+            transition={{ duration: 0.5 }}
+            className="bg-gray-800/30 backdrop-blur-lg rounded-xl p-8 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 group"
+          >
+            <div className="text-center">
+              <motion.h1
+                className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4"
+                initial={{ scale: 0 }}
+                animate={achievementsInView ? { scale: 1 } : { scale: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {counts.experience}+
+              </motion.h1>
+              <p className="text-gray-300 font-medium text-lg group-hover:text-blue-400 transition-colors duration-300">
+                YEARS OF EXPERIENCE 🧠
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={
+              achievementsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+            }
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="bg-gray-800/30 backdrop-blur-lg rounded-xl p-8 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 group"
+          >
+            <div className="text-center">
+              <motion.h1
+                className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4"
+                initial={{ scale: 0 }}
+                animate={achievementsInView ? { scale: 1 } : { scale: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                {counts.projects}+
+              </motion.h1>
+              <p className="text-gray-300 font-medium text-lg group-hover:text-blue-400 transition-colors duration-300">
+                PROJECTS COMPLETED ✅
+              </p>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={
+              achievementsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+            }
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="bg-gray-800/30 backdrop-blur-lg rounded-xl p-8 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105 group"
+          >
+            <div className="text-center">
+              <motion.h1
+                className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-4"
+                initial={{ scale: 0 }}
+                animate={achievementsInView ? { scale: 1 } : { scale: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                {counts.clients}+
+              </motion.h1>
+              <p className="text-gray-300 font-medium text-lg group-hover:text-blue-400 transition-colors duration-300">
+                HAPPY CLIENTS 🌍
+              </p>
+            </div>
+          </motion.div>
         </div>
-        <hr className="border-gray-700 opacity-50" />
-        <div className="about-achievement transform hover:scale-110 transition-all duration-300">
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-            {counts.projects}+
-          </h1>
-          <p className="text-gray-300 font-medium">PROJECTS COMPLETED ✅</p>
-        </div>
-        <hr className="border-gray-700 opacity-50" />
-        <div className="about-achievement transform hover:scale-110 transition-all duration-300">
-          <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-            {counts.clients}+
-          </h1>
-          <p className="text-gray-300 font-medium">HAPPY CLIENTS 🌍</p>
-        </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
