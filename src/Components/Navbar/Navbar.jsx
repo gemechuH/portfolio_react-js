@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.png";
 import underline from "../../assets/nav_underline.svg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
@@ -45,14 +45,14 @@ const Navbar = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full px-4 md:px-8 py-4 bg-dark backdrop-blur-sm shadow-lg transition-transform duration-300 z-50 text-white ${
+      className={`fixed top-1 left-3 w-full px-4 md:px-8 py-4 bg-dark backdrop-blur-sm shadow-lg transition-transform duration-300 z-50 text-white ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center">
+      <div className="max-w-7xl  flex items-center">
         {/* Left section with logo and social icons */}
-        <div className="flex items-center gap-4 md:gap-12">
-          <img src={logo} alt="Logo" className="h-10 w-auto" />
+        <div className="flex items-center gap-4 md:gap-15">
+          <img src={logo} alt="Logo" className="md:h-20 w-auto  rounded-full" />
           <div className="flex-1 flex justify-center md:flex">
             <div className="flex items-center gap-6 md:gap-4">
               <a
