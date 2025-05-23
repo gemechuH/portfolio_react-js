@@ -52,7 +52,7 @@ const Navbar = () => {
       <div className="max-w-7xl  flex items-center">
         {/* Left section with logo and social icons */}
         <div className="flex items-center gap-4 md:gap-15">
-          <img src={logo} alt="Logo" className="md:h-20 w-auto  rounded-full" />
+          <img src={logo} alt="Logo" className="h-15 md:h-20 w-auto  rounded-full" />
           <div className="flex-1 flex justify-center md:flex">
             <div className="flex items-center gap-6 md:gap-4">
               <a
